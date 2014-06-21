@@ -22,10 +22,21 @@ Set your R working directory to your cloned repository
 Run the R script run_analysis.R to create the tidy data set (dataTidy.txt).
 
 
+Checking the output file
+--------------------
+
+The tidy data set output file can be loaded in R and examined by using commands
+
+```{r}
+dataCheck <- read.table("dataTidy.txt", sep = ",")
+View(dataCheck)
+```
+
+
 Prerequisites
 -------------
 
-The run_analysis.R script requires packages "data.table", "plyr", and "reshape2".
+The run_analysis.R script requires packages "plyr", and "reshape2".
 
 
 Coding
@@ -43,16 +54,18 @@ This is accomplished by the following operations.
 
 * Load "features.txt" to get the variables used on the feature vector.
 * Give the features more meaningful names.
-* Load "X" data which contains observations where 70% of the volunteers
+* Load and join "X" data which contains observations where 70% of the volunteers
 generated the training data and 30% generated the test data.
 * Load "Activity Labels" which link activity numbers with activity names.
-* Load "Y" data which contains activity numbers for training and test groups
-* Load "Subject" data for both training and test groups
+* Load and join "Y" data which contains activity numbers for training and test groups
+* Load and join "Subject" data for both training and test groups
 * Join obervations with subjects and activity names
 * Extract measurements of mean and standard deviation for each measurement. 
 * Melt the joined data frame into a form suitable for casting.
-* Cast the molten data frame into an tidy data frame.
-* Write the tidy data to disk
+* Cast the molten data frame into a tidy data frame that meets the principles
+of tidy data taught in this class.
+* Write a tidy data text file to disk.
+
 
 END OF README.md FILE
 
